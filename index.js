@@ -1,9 +1,14 @@
 import puppeteer from "puppeteer";
+import express from "express";
 import acc from "./acc.js";
 let currentQueue = 0;
 let maxQueue = 0;
 const queuePerAccount = 10;
+const app = express();
 
+app.use(express.static("./"));
+
+app.listen(process.env.PORT || 8080, () => {});
 async function startOpenMiner(currentQueue, account) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
