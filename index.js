@@ -89,7 +89,7 @@ async function startOpenMiner(currentQueue, account) {
 
 async function start() {
     while (currentQueue <= acc.length * 10 - 1) {
-        if (maxQueue >= 2) {
+        if (maxQueue >= 1) {
             console.log("stop");
             await new Promise((r) => {
                 let id = setInterval(() => {
