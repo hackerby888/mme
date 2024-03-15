@@ -15,7 +15,11 @@ app.use(express.static("./"));
 app.listen(process.env.PORT || 8080, () => {});
 
 async function startOpenMiner(currentQueue, account) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+  executablePath: '/usr/bin/chromium-browser'
+})
+
+
     const page = await browser.newPage();
     try {
         await page.setViewport({ width: 1080, height: 1024 });
